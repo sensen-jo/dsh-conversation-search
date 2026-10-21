@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0-beta.1 — public source preparation
+
+- Use package identity dsh-sensenzi-conversation-search because the original npm name belongs to another project; the repository slug remains unchanged.
+- Retain the reviewed implementation, regenerate package-derived contract/client/patch/build info, and add six explicitly synthetic examples.
+- Original private beta passed real authenticated GUI core checks on Windows / DSH 0.2.0-rc.2 / Node 24.21.0; the renamed candidate needs its own installation/runtime verification.
+- Include an explicit 22-file package allowlist and six synthetic examples. npm publication and market acceptance are separate from source preparation.
+
 ## 0.2.0-beta.1 — private beta preparation
 
 - Set author/copyright to sensenzi and include the 2026 MIT license.

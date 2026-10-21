@@ -1,11 +1,11 @@
-# 发行准备
+# 发行与验证
 
-当前版本为 dsh-conversation-search@0.2.0-beta.1，作者及版权署名 sensenzi，Copyright (c) 2026 sensenzi，使用 [MIT](<./LICENSE>)。仓库为[私有 GitHub 仓库](<https://github.com/sensen-jo/dsh-conversation-search>)。
+包标识 `dsh-sensenzi-conversation-search`，版本 `0.2.0-beta.1`，作者／版权 sensenzi（2026），使用 [MIT](<./LICENSE>)。源码仓库：[sensen-jo/dsh-conversation-search](<https://github.com/sensen-jo/dsh-conversation-search>)。
 
-1. 源码只包含本插件及使用说明；不要将任务记录、日志、凭据、聊天截图或个人配置加入发行。
-2. Host 与客户端需由同一包提供；包字节确定后核构建、精确 tar 清单和同一 tar 的离线安装／运行。
-3. 使用 DSH 0.2.0-rc.2、Node.js 24+；真实登录 GUI 的检索、原文、取消、清除与定位回退需独立验收。
-4. 仓库当前保持私有。npm 名称可用性尚未实时核实；公开前还需确认账号控制、名称、下载来源、合成演示图和市场目录要求。
-5. package 中 private=true 保留 npm 发布保护。公开仓库、npm 发布、Release 或市场目录提交均需具体授权。
+1. 完整包只包含插件源码、生成客户端、使用／隐私／兼容性文档、MIT 和六张明确合成的示例图；Git 控制文件只入仓库。工程任务报告、日志、聊天和宿主配置不在发行范围。
+2. 发布前检查 `node build.mjs --check`、显式打包清单和同 tar 的安装／运行。Host／客户端同包，使用 DSH 0.2.0-rc.2 / Node.js 24+；兼容性边界见 [兼容性说明](<./COMPATIBILITY.md>)。
+3. 原 npm 名称 dsh-conversation-search 属于其他项目。npm 名称查无结果不表示已保留；发布前须重新核对账号、名称和最终字节，没有自动 publish 脚本。
+4. 1024 Store 目录使用单独 catalog/plugins/*.json 文件；未发布 npm 也可收录为仓库浏览条目，一键安装取决于 npm 发现。作者应维护 dsh-plugin topic、实际测试结果与中英文事实描述。目录元数据贡献 CC0-1.0，插件代码 MIT。
+5. 公开仓库、Release、npm 和市场 PR 分别操作。非 draft 单新条目 PR 的 static-review 通过后会自动合并并公开同步；draft 只检查。按当前市场指南确认实际提交日及变更范围。
 
-无自动 publish 脚本，不在构建／打包时安装第二套宿主或上传会话。MIT 许可不等于市场审核或兼容性认证。
+不捆绑第二套宿主、不新增持久索引或模型调用；截图的合成壳只用于展示。MIT 不等于兼容性或市场认证。

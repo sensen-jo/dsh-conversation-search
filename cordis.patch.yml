@@ -1,4 +1,4 @@
 # Package-relative, Loader-resolved entry; portable across profile roots and OS paths.
 - insert:
     - id: conversation-search
-      name: "dsh-conversation-search"
+      name: "dsh-sensenzi-conversation-search"

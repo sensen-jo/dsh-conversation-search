@@ -2,7 +2,7 @@
 
 在 DSH 会话里按关键词查找已经落盘的用户、助手原文，并回到准确的来源记录。支持中文连续子串、原句片段高亮、角色和时间标签，以及前后上下文。
 
-> **0.2.0-beta.1 私有测试版** · 作者 sensenzi · [MIT 许可证](<./LICENSE>)。源码存于[私有 GitHub 仓库](<https://github.com/sensen-jo/dsh-conversation-search>)，尚未公开发行或提交插件市场。package 保留 private 发布保护；本版目标为 DSH 0.2.0-rc.2 / Node.js 24+。
+> **0.2.0-beta.1** · 作者 sensenzi · [MIT 许可证](<./LICENSE>) · 包标识 `dsh-sensenzi-conversation-search` · [GitHub 仓库](<https://github.com/sensen-jo/dsh-conversation-search>)。目标环境：DSH 0.2.0-rc.2 / Node.js 24+。
 
 ## 开始检索
 
@@ -43,7 +43,13 @@
 
 ## 安装、升级和回退
 
-先核对 [支持版本与升级说明](<./COMPATIBILITY.md>)。本版本尚未提供公共下载，因此不在这里给出公开 npm 安装命令。私有测试应使用经检查的完整离线包，通过 DSH 官方插件管理方式安装；最终公开下载地址和校验摘要将在发行时补充。
+先核对 [支持版本与升级说明](<./COMPATIBILITY.md>)。本版本通过仓库提供源码和合成界面示例，没有发布 npm 包。包标识为 `dsh-sensenzi-conversation-search`，与仓库名不同；`dsh-conversation-search` 的 npm 包属于其他项目，请核对来源。
+
+如已有来源与 SHA256 均核对过的完整离线包，可使用 DSH 官方插件管理界面，或 `dsh plugin --profile web add <已校验包的完整本地路径>`；占位符须替换成实际文件，不能直接粘贴运行。也可按下面的方法在本地构建完整包。Web profile 可即时重载；启动型 profile 按宿主要求重启。安装时只启用一个原文检索版本。
+
+源码构建时，在仓库根目录使用 Node.js 24+ 运行 `node build.mjs --check`，然后 `npm pack --offline --ignore-scripts --workspaces=false`。包没有需要联网安装的运行时依赖，依赖由匹配版本的宿主提供；预先检查生成客户端与包内清单。离线安装／Loader 核验不等于每种 profile 的生产安装验收。
+
+未发布 npm 的版本只能在市场以仓库浏览条目展示；一键安装取决于正式 npm 发布与市场发现。本说明不表示条目已经被收录。
 
 未来升级时保留已验证旧包和该插件的配置记录，先停用旧 bundle，再通过 DSH 官方插件管理方式安装并启用同一版本的 Host／客户端包。旧版与新版共用 RPC 服务名和视图入口，不支持同时启用。
 
@@ -62,3 +68,19 @@
 | 复制来源地址失败 | 浏览器未允许剪贴板访问时，可手动选择显示的来源坐标复制。不要把复制内容当作命令执行。 |
 
 这是字面检索，不是语义、正则或 OCR 搜索。长度和原文位置按 UTF-16 单位计数；字形相似、组合形式不同的文本可能不匹配，分段高亮也不代表整条原文的全部匹配位置。详见 [兼容性与限制](<./COMPATIBILITY.md>)。
+
+## 合成界面示例
+
+以下图片来自经过核对的私有 beta 客户端与检索引擎，在离线 React／Chromium 测试壳中运行的专造事件。图片标明 SYNTHETIC DEMO；没有真实聊天，也不是已登录 Host 截图。更名候选沿用相同实现、改变包身份；图片不能证明新名称包的真实 GUI 验收或市场审核。三张故障图是人工注入的失败／歧义／来源变化演示。
+
+![中文检索 · 合成示例](<./assets/beta1-desktop-search-synthetic.png>)
+
+![深色原文与上下文 · 合成示例](<./assets/beta1-desktop-detail-dark-synthetic.png>)
+
+![390px 窄屏 · 合成示例](<./assets/beta1-mobile-search-synthetic.png>)
+
+![读取失败提示 · 合成注入](<./assets/beta1-desktop-incomplete-synthetic.png>)
+
+![重复来源时停止定位 · 合成注入](<./assets/beta1-desktop-ambiguous-source-synthetic.png>)
+
+![来源绑定变化时停止定位 · 合成注入](<./assets/beta1-desktop-binding-changed-synthetic.png>)

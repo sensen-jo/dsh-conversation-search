@@ -1,4 +1,4 @@
-export const PACKAGE = 'dsh-conversation-search';
+export const PACKAGE = 'dsh-sensenzi-conversation-search';
 export const NAMESPACE = 'conversationTextSearch';
 // Fixed public failures; upstream diagnostic objects are never inspected or copied.
 export const PUBLIC_FAILURES = Object.freeze(Object.fromEntries(Object.entries({

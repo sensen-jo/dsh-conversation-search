@@ -1,22 +1,30 @@
-# Untracked-file whitelist for this local import snapshot.
-# Git ignores are not access control; force-add and browser uploads can bypass them.
+# Explicit public repository candidate allowlist; not access control.
 /*
-!/build.mjs
 !/CHANGELOG.md
-!/client-entry.mjs
 !/COMPATIBILITY.md
+!/LICENSE
+!/PRIVACY.md
+!/README.md
+!/RELEASING.md
+!/build.mjs
+!/client-entry.mjs
 !/contract.mjs
 !/cordis.patch.yml
 !/index.mjs
 !/package.json
-!/PRIVACY.md
-!/README.md
-!/RELEASING.md
 !/search.mjs
+!/screenshots.json
 !/.gitignore
 !/.gitattributes
 !/lib/
 /lib/*
 !/lib/client.js
 !/lib/build-info.json
-!/LICENSE
+!/assets/
+/assets/*
+!/assets/beta1-desktop-search-synthetic.png
+!/assets/beta1-desktop-detail-dark-synthetic.png
+!/assets/beta1-mobile-search-synthetic.png
+!/assets/beta1-desktop-incomplete-synthetic.png
+!/assets/beta1-desktop-ambiguous-source-synthetic.png
+!/assets/beta1-desktop-binding-changed-synthetic.png

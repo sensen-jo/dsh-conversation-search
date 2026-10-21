@@ -1,10 +1,10 @@
 {
   "format": 1,
-  "package": "dsh-conversation-search",
+  "package": "dsh-sensenzi-conversation-search",
   "version": "0.2.0-beta.1",
   "inputs": {
-    "contract.mjs": "b21269b388e5d4bcbd8f80b1d07fdaeb44693edc6cd6ae621a70cc4e1662f28c",
+    "contract.mjs": "dc02eb3af9ff917e1e4dbcbeba186e856798443ba7d28e2b4e552bb278312d85",
     "client-entry.mjs": "8078fc2ec9e63c4fe317fbc170a08632025d45b83b265df1c6dbf0c1abacfdd9"
   },
-  "clientSha256": "bd5007dd9d07cec13320a150e61bf02c73e654713b90dd1994f8c02f216fdbca"
+  "clientSha256": "ddd5f392e0a9b69a05e082bd49bab658b7a826160a7c05ee1698d096ceb796af"
 }
