@@ -1,0 +1,22 @@
+# Untracked-file whitelist for this local import snapshot.
+# Git ignores are not access control; force-add and browser uploads can bypass them.
+/*
+!/build.mjs
+!/CHANGELOG.md
+!/client-entry.mjs
+!/COMPATIBILITY.md
+!/contract.mjs
+!/cordis.patch.yml
+!/index.mjs
+!/package.json
+!/PRIVACY.md
+!/README.md
+!/RELEASING.md
+!/search.mjs
+!/.gitignore
+!/.gitattributes
+!/lib/
+/lib/*
+!/lib/client.js
+!/lib/build-info.json
+!/LICENSE

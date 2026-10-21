@@ -1,0 +1,85 @@
+{
+  "name": "dsh-conversation-search",
+  "version": "0.2.0-beta.1",
+  "private": true,
+  "description": "Local read-only original conversation search with literal Chinese matching and exact sessionId + seq provenance",
+  "type": "module",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "search.mjs",
+    "contract.mjs",
+    "client-entry.mjs",
+    "cordis.patch.yml",
+    "lib/client.js",
+    "lib/build-info.json",
+    "build.mjs",
+    "README.md",
+    "PRIVACY.md",
+    "COMPATIBILITY.md",
+    "CHANGELOG.md",
+    "RELEASING.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "conversation",
+    "search",
+    "chinese",
+    "read-only",
+    "provenance",
+    "dsh-plugin"
+  ],
+  "engines": {
+    "node": ">=24",
+    "dsh": "0.2.0-rc.2"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-session-query": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session-query": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-typert-protocol": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "check:build": "node build.mjs --check",
+    "prepack": "node build.mjs --check"
+  },
+  "license": "MIT",
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-api-gateway",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "author": "sensenzi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sensen-jo/dsh-conversation-search"
+  }
+}
