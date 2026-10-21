@@ -43,13 +43,21 @@
 
 ## 安装、升级和回退
 
-先核对 [支持版本与升级说明](<./COMPATIBILITY.md>)。本版本通过仓库提供源码和合成界面示例，没有发布 npm 包。包标识为 `dsh-sensenzi-conversation-search`，与仓库名不同；`dsh-conversation-search` 的 npm 包属于其他项目，请核对来源。
+先核对 [支持版本与升级说明](<./COMPATIBILITY.md>)。包标识为 `dsh-sensenzi-conversation-search`，与仓库名不同；`dsh-conversation-search` 的 npm 包属于其他项目，请核对来源。`0.2.0-beta.1` 为预发布版本，目标是 DSH 0.2.0-rc.2 / Node.js 24+。
 
-如已有来源与 SHA256 均核对过的完整离线包，可使用 DSH 官方插件管理界面，或 `dsh plugin --profile web add <已校验包的完整本地路径>`；占位符须替换成实际文件，不能直接粘贴运行。也可按下面的方法在本地构建完整包。Web profile 可即时重载；启动型 profile 按宿主要求重启。安装时只启用一个原文检索版本。
+从 npm 安装指定版本：
+
+```sh
+dsh plugin --profile web add dsh-sensenzi-conversation-search@0.2.0-beta.1
+```
+
+仅在该版本已发布到官方 npm 注册表后可安装；本文档本身不证明发布成功。安装前核对包名、版本、仓库及注册表完整性信息，使用 DSH 官方插件管理界面或上述命令。市场使用不带版本号的命令时，由 npm 的 `latest` 标签选定版本，仍需确认它是否是 beta。
+
+如使用经过核对的完整离线包，将命令中的包名替换为本地包的完整路径；也可按下面的方法构建。Web profile 可即时重载；启动型 profile 按宿主要求重启。安装时只启用一个原文检索版本。
 
 源码构建时，在仓库根目录使用 Node.js 24+ 运行 `node build.mjs --check`，然后 `npm pack --offline --ignore-scripts --workspaces=false`。包没有需要联网安装的运行时依赖，依赖由匹配版本的宿主提供；预先检查生成客户端与包内清单。离线安装／Loader 核验不等于每种 profile 的生产安装验收。
 
-未发布 npm 的版本只能在市场以仓库浏览条目展示；一键安装取决于正式 npm 发布与市场发现。本说明不表示条目已经被收录。
+[1024 Store 条目](<https://deepseek1024.com/plugins/sensen-jo/dsh-conversation-search>)已收录仓库；npm 安装入口还取决于平台对已发布包的检测，更新可能晚于注册表。仓库条目、npm 发布和市场可安装是不同状态，请以实际入口和安装结果核对。
 
 未来升级时保留已验证旧包和该插件的配置记录，先停用旧 bundle，再通过 DSH 官方插件管理方式安装并启用同一版本的 Host／客户端包。旧版与新版共用 RPC 服务名和视图入口，不支持同时启用。
 
