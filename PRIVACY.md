@@ -1,6 +1,6 @@
 # 隐私与数据边界
 
-0.2.0-beta.1，包标识 dsh-sensenzi-conversation-search，作者 sensenzi，代码使用 [MIT 许可证](<./LICENSE>)。
+0.2.0-beta.2，包标识 dsh-sensenzi-conversation-search，作者 sensenzi，代码使用 [MIT 许可证](<./LICENSE>)。
 
 ## 读取哪些数据
 

@@ -1,6 +1,6 @@
 {
   "name": "dsh-sensenzi-conversation-search",
-  "version": "0.2.0-beta.1",
+  "version": "0.2.0-beta.2",
   "private": false,
   "description": "Local read-only original conversation search with literal Chinese matching and exact sessionId + seq provenance",
   "type": "module",
@@ -45,12 +45,12 @@
   ],
   "engines": {
     "node": ">=24",
-    "dsh": "0.2.0-rc.2"
+    "dsh": "0.2.1-rc.2"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh": "0.2.0-rc.2",
-    "@deepseek-ai/dsh-session-query": "0.2.0-rc.2",
-    "@deepseek-ai/dsh-typert-protocol": "0.2.0-rc.2"
+    "@deepseek-ai/dsh": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-session-query": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": "0.2.1-rc.2"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/dsh": {

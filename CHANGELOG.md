@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0-beta.2 — DSH 0.2.1-rc.2 compatibility
+
+- Target DSH 0.2.1-rc.2 and the matching session-query/typert-protocol peers exactly; retain beta.1 for the prior 0.2.0-rc.2 host.
+- Preserve the read-only search, source-coordinate, private-error and unload contracts. Verify the candidate against the actual updated host before deployment or publication.
+- Regenerate package-version build provenance. Retain prior packages and plugin-scoped rollback materials; do not overwrite shared profile state.
+
 ## 0.2.0-beta.1 — public source preparation
 
 - Use package identity dsh-sensenzi-conversation-search because the original npm name belongs to another project; the repository slug remains unchanged.
