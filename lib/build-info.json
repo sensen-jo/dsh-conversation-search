@@ -1,7 +1,7 @@
 {
   "format": 1,
   "package": "dsh-sensenzi-conversation-search",
-  "version": "0.2.0-beta.2",
+  "version": "0.2.0-beta.3",
   "inputs": {
     "contract.mjs": "dc02eb3af9ff917e1e4dbcbeba186e856798443ba7d28e2b4e552bb278312d85",
     "client-entry.mjs": "8078fc2ec9e63c4fe317fbc170a08632025d45b83b265df1c6dbf0c1abacfdd9"

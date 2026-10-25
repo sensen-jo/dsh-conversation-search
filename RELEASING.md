@@ -1,13 +1,12 @@
 # 发行与验证
 
-包标识 `dsh-sensenzi-conversation-search`，版本 `0.2.0-beta.2`，作者／版权 sensenzi（2026），使用 [MIT](<./LICENSE>)。源码仓库：[sensen-jo/dsh-conversation-search](<https://github.com/sensen-jo/dsh-conversation-search>)。
+包标识 `dsh-sensenzi-conversation-search`，当前源码版本 `0.2.0-beta.3`，作者 sensenzi，2026 [MIT](<./LICENSE>)。[GitHub](<https://github.com/sensen-jo/dsh-conversation-search>)。
 
-1. 完整包只包含插件源码、生成客户端、使用／隐私／兼容性文档、MIT 和六张明确合成的示例图；Git 控制文件只入仓库。工程任务报告、日志、聊天和宿主配置不在发行范围。
-2. 发布前检查 `node build.mjs --check`、显式打包清单和同 tar 的安装／运行。Host／客户端同包，使用 DSH 0.2.1-rc.2 / Node.js 24+；兼容性边界见 [兼容性说明](<./COMPATIBILITY.md>)。
-3. 原 npm 名称 dsh-conversation-search 属于其他项目。npm 名称查无结果不表示已保留；发布前须重新核对账号、名称和最终字节，没有自动 publish 脚本。 发布前检查所有将公开的文件、提交作者邮箱、图片及元数据和账号联系信息；不要将私有配置、凭据、真实聊天或任务报告打包。源码提交使用 GitHub 匿名邮箱；npm 联系邮箱应为作者接受公开的地址。
-   - 当前市场读取包的 `latest` manifest 并提供不带版本的安装命令；若 `latest` 指向 `0.2.0-beta.2`，该 beta 就是默认安装版本，不能据此称为稳定版。
-   - 发布后读取精确注册表版本、下载 tar 验完整性与每个文件，再在独立空 DSH_HOME 的 web profile 安装并检查核心检索；市场入口另行核对。不修改用户正在使用的 profile。
-4. 现用 dshmarket 对应 awesome-dsh-plugin 目录，当前收录申请为 PR #8546；原 1024 Store 是另一目录。按目标目录当前指南维护中英文描述和精确宿主支持范围，不能以 npm 可用替代市场收录验收。
-5. 公开仓库、Release、npm 和市场 PR 分别操作。审核、合并、目录同步和实际可搜可装须逐项检查；通过某一检查不保证自动合并，不绕过维护者保留状态。
+1. 发行包只包含显式清单内的源码、生成客户端、五份文档、许可证和六张合成示例图。排除任务报告、真实聊天、配置、依赖目录、Git凭据、日志和私有路径。
+2. 兼容声明仅含 DSH `0.2.1-rc.2 || 0.2.1-rc.3`，peer 同范围。运行 `node build.mjs --check`，打包后在两个精确官方宿主的全新隔离 profile 验证 CLI 准入、Loader/Gateway、浏览器模块往返、卸载、Unicode 和错误隐私。合成测试不等于真实GUI验收。
+3. 发布前核对包内每个文件及 hash、源码变化、图片元数据、作者匿名邮箱、Release标题/正文和下载清单；不读取真实凭据来比对，不公开任务报告中的本机路径。
+4. 将已审查源码 fast-forward 推送至原仓库，创建不可覆盖的 `v0.2.0-beta.3` tag，发布 prerelease 与完整 tgz、SHA256SUMS.txt、无本机信息的简洁验证说明。用匿名公共端点读回提交/tag、下载资产和精确 hash。不能用push返回成功代替读回。
+5. beta.3 仅通过本次GitHub Release发布；npm beta.1/beta.2与现有dist-tags保持。不得写beta.3的npm可装指令，亦不将GitHub Release当作市场收录更新。需要将来npm或市场发行时单独核对账号、最终字节与授权。
+6. 保留已发布旧版本、tag、原npm包和现用配置。用户按兼容表选择版本，不自动升级其DSH/插件；同一profile只启用一个原文检索实现。回退只处理本插件所属配置，不覆盖共享profile。
 
-不捆绑第二套宿主、不新增持久索引或模型调用；截图的合成壳只用于展示。MIT 不等于兼容性或市场认证。
+Host与客户端来自同一个完整包。不捆绑第二套宿主、不新增索引、外部分析或模型调用。更多数据边界见 [PRIVACY](<./PRIVACY.md>)。

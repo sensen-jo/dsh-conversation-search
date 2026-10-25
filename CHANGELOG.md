@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0-beta.3 — selectable GitHub release for DSH rc.2 / rc.3
+
+- Declare only DSH 0.2.1-rc.2 and 0.2.1-rc.3 as an exact union, including session-query and Typert peer admission.
+- Keep the reviewed read-only search, browser implementation and six synthetic assets unchanged.
+- Provide a version-selection table and immutable GitHub tag/Release with the full tgz and SHA256SUMS; no beta.3 npm publication or market change in this release.
+- Verify the exact packed bytes in disposable profiles under both official hosts before publishing; do not update the author's live Host or plugin.
+
 ## 0.2.0-beta.2 — DSH 0.2.1-rc.2 compatibility
 
 - Target DSH 0.2.1-rc.2 and the matching session-query/typert-protocol peers exactly; retain beta.1 for the prior 0.2.0-rc.2 host.

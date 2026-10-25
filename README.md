@@ -2,7 +2,7 @@
 
 在 DSH 会话里按关键词查找已经落盘的用户、助手原文，并回到准确的来源记录。支持中文连续子串、原句片段高亮、角色和时间标签，以及前后上下文。
 
-> **0.2.0-beta.2** · 作者 sensenzi · [MIT 许可证](<./LICENSE>) · 包标识 `dsh-sensenzi-conversation-search` · [GitHub 仓库](<https://github.com/sensen-jo/dsh-conversation-search>)。目标环境：DSH 0.2.1-rc.2 / Node.js 24+。旧宿主 0.2.0-rc.2 请保留 beta.1；不据此承诺其他宿主版本。
+> **0.2.0-beta.3** · 作者 sensenzi · [MIT 许可证](<./LICENSE>) · 包标识 `dsh-sensenzi-conversation-search` · [GitHub 仓库](<https://github.com/sensen-jo/dsh-conversation-search>)。目标环境：DSH 0.2.1-rc.2 或 0.2.1-rc.3 / Node.js 24+。兼容声明只包含这两个精确宿主；旧宿主 0.2.0-rc.2 请保留 beta.1。
 
 本版本面向宿主所有者的本地使用，未声明非所有者远程身份的会话级授权支持。请勿为兼容而授予全局访问权限或跳过宿主版本检查。详见 [兼容性与授权边界](<./COMPATIBILITY.md>)。
 
@@ -45,21 +45,35 @@
 
 ## 安装、升级和回退
 
-先核对 [支持版本与升级说明](<./COMPATIBILITY.md>)。包标识为 `dsh-sensenzi-conversation-search`，与仓库名不同；`dsh-conversation-search` 的 npm 包属于其他项目，请核对来源。`0.2.0-beta.2` 为预发布版本，目标是 DSH 0.2.1-rc.2 / Node.js 24+。beta.1 对应旧宿主 0.2.0-rc.2；升级宿主后不能继续用旧版的准入声明。
+按你实际使用的 DSH 版本选择，不需要为了安装插件先升级 DSH。包标识为 `dsh-sensenzi-conversation-search`；同名近似 npm 包 `dsh-conversation-search` 属于其他项目。
 
-从 npm 安装指定版本：
+| 插件版本 | 支持的 DSH | 获取方式 |
+| --- | --- | --- |
+| 0.2.0-beta.3 | 0.2.1-rc.2、0.2.1-rc.3 | [GitHub Release](<https://github.com/sensen-jo/dsh-conversation-search/releases/tag/v0.2.0-beta.3>) 下载完整 tgz；本次没有把 beta.3 发布到 npm。 |
+| 0.2.0-beta.2 | 0.2.1-rc.2 | npm 精确版本；继续使用 rc.2 的用户可以保留已验证 beta.2。 |
+| 0.2.0-beta.1 | 0.2.0-rc.2 | npm 精确旧版；不支持 0.2.1-rc.2/rc.3。 |
+
+所有版本都是 beta 预发布，不承诺其他未来宿主兼容。Release 列表按 tag 保留版本选择；旧 npm 版本不改写。支持范围详见 [兼容性说明](<./COMPATIBILITY.md>)。
+
+下载 Release 中的 `dsh-sensenzi-conversation-search-0.2.0-beta.3.tgz` 和 `SHA256SUMS.txt`，核对校验和后，在 DSH 官方插件管理界面选择完整本地包，或把下面路径替换成下载包的实际绝对路径：
+
+```sh
+dsh plugin --profile web add "/absolute/path/dsh-sensenzi-conversation-search-0.2.0-beta.3.tgz" --ignore-scripts --config.auto-install-peers=false
+```
+
+这只安装插件，不升级 DSH。先停用旧原文检索 bundle，只启用一个版本。不要直接安装 GitHub main 的压缩源码作为完整发行包；Release 的 tgz 包含已核对的生成客户端和显式发行清单。
+
+保留 npm beta.2 的 rc.2 用户可使用：
 
 ```sh
 dsh plugin --profile web add dsh-sensenzi-conversation-search@0.2.0-beta.2
 ```
 
-仅在该版本已发布到官方 npm 注册表后可安装；本文档本身不证明发布成功。安装前核对包名、版本、仓库及注册表完整性信息，使用 DSH 官方插件管理界面或上述命令。市场使用不带版本号的命令时，由 npm 的 `latest` 标签选定版本，仍需确认它是否是 beta。
+beta.3 没有对应 npm 发布，不能把上面命令的版本替换成 beta.3。当 npm 或市场使用不带版本的包名时，实际版本还受 dist-tag 和 pnpm `minimumReleaseAge` 策略影响；以安装后版本和宿主准入为准，不关闭全局安全观察期。
 
-如使用经过核对的完整离线包，将命令中的包名替换为本地包的完整路径；也可按下面的方法构建。Web profile 可即时重载；启动型 profile 按宿主要求重启。安装时只启用一个原文检索版本。
+源码构建：使用 Node.js 24+ 运行 `node build.mjs --check`，再 `npm pack --offline --ignore-scripts --workspaces=false`。包没有需联网安装的运行时依赖，运行时服务来自匹配的宿主。Web profile 的重载行为依宿主而定；源码或 Release 发布不代表你当前界面已经加载新版。
 
-源码构建时，在仓库根目录使用 Node.js 24+ 运行 `node build.mjs --check`，然后 `npm pack --offline --ignore-scripts --workspaces=false`。包没有需要联网安装的运行时依赖，依赖由匹配版本的宿主提供；预先检查生成客户端与包内清单。离线安装／Loader 核验不等于每种 profile 的生产安装验收。
-
-现用 dshmarket 目录收录申请为 [PR #8546](<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/8546>)，市场是否可搜可装须以实际目录和入口核对；[原 1024 Store 条目](<https://deepseek1024.com/plugins/sensen-jo/dsh-conversation-search>)属于另一目录，不能替代现用市场验收。仓库条目、npm 发布、审核合并和市场可安装是不同状态。
+现用市场目录：[市场条目](<https://awesome-dsh-plugin.com/p/sensen-jo/dsh-conversation-search/>)。GitHub Release、npm、市场审核和实际客户端搜索是分别维护的状态；本次 GitHub beta.3 发布不修改 npm dist-tag 或市场条目，不把旧目录显示当作新版验收。
 
 未来升级时保留已验证旧包和该插件的配置记录，先停用旧 bundle，再通过 DSH 官方插件管理方式安装并启用同一版本的 Host／客户端包。旧版与新版共用 RPC 服务名和视图入口，不支持同时启用。
 
